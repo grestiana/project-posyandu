@@ -1,7 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+import logo from '../image/logo_posyandu.png'; // Pastikan path file benar
 
-const Navbar = () => {
+const NavbarAfterLogin = () => {
   return (
     <nav
       className="navbar navbar-expand-lg"
@@ -13,7 +16,7 @@ const Navbar = () => {
       }}
     >
       <div className="container-fluid">
-        <Link
+        <NavLink
           className="navbar-brand d-flex align-items-center"
           to="/"
           style={{
@@ -24,7 +27,7 @@ const Navbar = () => {
           }}
         >
           <img
-            src="./logo_posyandu.png" // Ganti URL ini dengan URL logo Anda
+            src={logo}
             alt="Logo Posyandu"
             style={{
               width: '40px',
@@ -36,7 +39,7 @@ const Navbar = () => {
             }}
           />
           POSYANDU
-        </Link>
+        </NavLink>
         <button
           className="navbar-toggler"
           type="button"
@@ -51,49 +54,63 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <Link
+              <NavLink
                 className="nav-link"
                 to="/balita"
+                activeClassName="active"
                 style={{ color: '#555', fontWeight: '500' }}
               >
                 Balita
-              </Link>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <Link
+              <NavLink
                 className="nav-link"
                 to="/lansia"
+                activeClassName="active"
                 style={{ color: '#555', fontWeight: '500' }}
               >
                 Lansia
-              </Link>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <Link
+              <NavLink
                 className="nav-link"
                 to="/kader"
+                activeClassName="active"
                 style={{ color: '#555', fontWeight: '500' }}
               >
                 Kader Page
-              </Link>
+              </NavLink>
             </li>
-            <li className="nav-item">
-              <Link
-                className="nav-link"
-                to="/login"
-                style={{ color: '#007bff', fontWeight: '500' }}
+            <li className="nav-item dropdown">
+              <NavLink
+                className="nav-link dropdown-toggle"
+                to="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                style={{ color: '#555', fontWeight: '500' }}
               >
-                Login
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                className="nav-link"
-                to="/register"
-                style={{ color: '#007bff', fontWeight: '500' }}
-              >
-                Register
-              </Link>
+                Profil
+              </NavLink>
+              <ul className="dropdown-menu">
+                <li>
+                  <NavLink className="dropdown-item" to="/profil/petugas">
+                    Petugas
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink className="dropdown-item" to="/profil/kader">
+                    Kader
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink className="dropdown-item" to="/profil/admin">
+                    Admin
+                  </NavLink>
+                </li>
+              </ul>
             </li>
           </ul>
         </div>
@@ -102,4 +119,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavbarAfterLogin;

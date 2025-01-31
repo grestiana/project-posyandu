@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+/* Untuk Chrome, Edge, dan Safari */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Untuk Firefox */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+

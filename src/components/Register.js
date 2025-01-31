@@ -39,11 +39,10 @@ const Register = () => {
         idPetugasPuskesmas,
       };
 
+      // Kirim data ke backend
       await axios.post('http://localhost:5000/api/users/register', data);
       alert('Registered successfully!');
-      
-        navigate('/login');
-      
+      navigate('/login'); // Arahkan ke halaman login setelah berhasil registrasi
     } catch (error) {
       console.error(error);
       alert('Error during registration!');
